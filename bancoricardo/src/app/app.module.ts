@@ -8,6 +8,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { LoansComponent } from './pages/loans/loans.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterUpdateClientsComponent } from './pages/register-update-clients/register-update-clients.component';
+import { ButtonComponent } from './components/button/button.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     ClientsComponent,
     LoansComponent,
+    RegisterUpdateClientsComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
