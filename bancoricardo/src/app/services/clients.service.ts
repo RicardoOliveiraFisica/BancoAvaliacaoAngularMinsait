@@ -1,17 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environment/environment';
+import { IClient } from '../interfaces/client';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientsService {
+  endpoint = 'clientes'
+  api = environment.api;
+  constructor(private http: HttpClient) {}
 
-  constructor() {
-    endpoint = 'clientes'
-    api = environment.api;
-    constructor(private http: HttpClient) { }
-
-    buscarTodosLivros() {
-      return this.http.get<ILivro[]>(`${this.api}/${this.endpoint}`);
-    }
+  buscarTodosClientes() {
+    return this.http.get<IClient[]>(`${this.api}/${this.endpoint}`);
   }
+
 }

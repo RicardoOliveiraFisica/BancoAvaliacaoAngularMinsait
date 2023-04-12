@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IClient } from 'src/app/interfaces/client';
+import { ClientsService } from 'src/app/services/clients.service';
 
 @Component({
   selector: 'app-clients',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent {
+  clientes: IClient[] = [];
 
+  constructor(private clientsService: ClientsService) {}
+
+  ngOnInit() {
+    this.clientsService.buscarTodosClientes().subscribe( (result: IClient[]) => {
+      this.clientes = result;
+    });
+
+  }
 }
