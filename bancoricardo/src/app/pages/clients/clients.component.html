@@ -3,16 +3,24 @@
 <table class="table table-dark table-striped">
   <thead>
     <tr>
-      <th scope="col">CPF</th>
       <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
       <th scope="col">Telefone</th>
+      <th scope="col">Rua</th>
+      <th scope="col">Numero</th>
+      <th scope="col">CEP</th>
+      <th scope="col">Rendimento Mensal</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
+    <tr *ngFor="let cliente of clientes">
+      <th scope="row">{{ cliente.nome }}</th>
+      <td>{{ cliente.cpf }}</td>
+      <td>{{ cliente.telefone }}</td>
+      <td>{{ cliente.rua }}</td>
+      <td>{{ cliente.numero }}</td>
+      <td>{{ cliente.cep }}</td>
+      <td>{{ cliente.rendimentoMensal }}</td>
     </tr>
   </tbody>
 </table>
