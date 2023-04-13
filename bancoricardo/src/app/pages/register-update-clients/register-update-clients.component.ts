@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IClient } from 'src/app/interfaces/client';
 import { ClientsService } from 'src/app/services/clients.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register-update-clients',
@@ -25,9 +26,19 @@ export class RegisterUpdateClientsComponent {
   register() {
     const client: IClient = this.clientForm.value as IClient;
     this.clientsService.cadastrarCliente(client).subscribe(result => {
-      console.log(result);
+      Swal.fire(
+        'Cadastrado!',
+        'Cadastro realizado com sucesso!',
+        'success'
+      )
     }, error => {
       console.error(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Cadastro não realizado!',
+        footer: (error.error.errors ? error.error.errors[0].defaultMessage : error.error.message)
+      })
     });
   }
 
