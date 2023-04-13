@@ -15,4 +15,11 @@ export class ClientsService {
     return this.http.get<IClient[]>(`${this.api}/${this.endpoint}`);
   }
 
+  cadastrarCliente(client: IClient) {
+    return this.http.post(`${this.api}/${this.endpoint}`, client);
+  }
+
+  buscarClientePorCpf(cpf: string) {
+    return this.http.get<IClient>(`${this.api}/${this.endpoint}/{cpf}`);
+  }
 }

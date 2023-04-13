@@ -2,7 +2,7 @@
 <hr>
 <div> {{clientForm.value | json}} </div>
 <div class="container-fluid">
-  <form [formGroup]="clientForm" (ngSubmit)="register">
+  <form [formGroup]="clientForm" (ngSubmit)="register()">
     <div class="row">
       <div class="col">
         <div class="mb-12">
@@ -61,6 +61,6 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-dark">Submit</button>
+    <button type="submit" class="btn btn-dark" [disabled]="!clientForm.valid">Cadastrar</button>
   </form>
 </div>
