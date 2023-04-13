@@ -20,6 +20,10 @@ export class ClientsService {
   }
 
   buscarClientePorCpf(cpf: string) {
-    return this.http.get<IClient>(`${this.api}/${this.endpoint}/{cpf}`);
+    return this.http.get<IClient>(`${this.api}/${this.endpoint}/${cpf}`);
+  }
+
+  atualizarClientePeloCpf(cpf: string, client: IClient) {
+    return this.http.put<IClient>(`${this.api}/${this.endpoint}/${cpf}`, client);
   }
 }
