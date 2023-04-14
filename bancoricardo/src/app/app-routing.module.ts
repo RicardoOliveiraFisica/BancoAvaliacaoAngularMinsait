@@ -6,11 +6,13 @@ import { LoansComponent } from './pages/loans/loans.component';
 import { RegisterUpdateClientsComponent } from './pages/register-update-clients/register-update-clients.component';
 
 const routes: Routes = [
+  { path: "", redirectTo: "home", pathMatch: "full"},
   { path: "home", component: HomeComponent },
   { path: "clients", component: ClientsComponent },
   { path: "loans", component: LoansComponent },
   { path: "clients/register", component: RegisterUpdateClientsComponent },
-  { path: "clients/edit/:cpf", component: RegisterUpdateClientsComponent }
+  { path: "clients/edit/:cpf", component: RegisterUpdateClientsComponent },
+  { path: "clients/delete/:cpf", component: ClientsComponent }
 ];
 
 @NgModule({

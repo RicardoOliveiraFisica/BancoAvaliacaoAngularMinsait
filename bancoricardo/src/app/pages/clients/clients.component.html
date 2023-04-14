@@ -22,6 +22,8 @@
       <td>{{ cliente.numero }}</td>
       <td>{{ cliente.cep }}</td>
       <td>{{ cliente.rendimentoMensal | currency: 'BRL'}}</td>
+      <app-button label="Editar" [routerLink]="['/clients/edit/', cliente.cpf]"></app-button>
+      <app-button label="Deletar" (click)="delete(cliente.cpf)"></app-button>
     </tr>
   </tbody>
 </table>

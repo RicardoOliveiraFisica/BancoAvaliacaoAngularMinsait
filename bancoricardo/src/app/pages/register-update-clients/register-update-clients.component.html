@@ -1,6 +1,5 @@
 <h1 class="display-6">{{typeCrud == 'edit' ? 'Atualização' : 'Cadastro'}} de Cliente</h1>
 <hr>
-<div> {{clientForm.value | json}} </div>
 <div class="container-fluid">
   <form [formGroup]="clientForm" (ngSubmit)="registerOrUpdate()">
     <div class="row">

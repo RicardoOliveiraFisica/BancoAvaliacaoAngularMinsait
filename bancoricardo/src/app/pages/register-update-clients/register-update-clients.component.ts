@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IClient } from 'src/app/interfaces/client';
 import { ClientsService } from 'src/app/services/clients.service';
 import Swal from 'sweetalert2';
@@ -23,7 +23,7 @@ export class RegisterUpdateClientsComponent {
   })
 
 
-  constructor(private clientsService: ClientsService, private route: ActivatedRoute) {}
+  constructor(private clientsService: ClientsService, private route: ActivatedRoute, private router: Router) {}
   typeCrud = 'register';
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class RegisterUpdateClientsComponent {
         this.clientForm.setValue({
           nome: client.nome || '',
           cpf: client.cpf || '',
-          telefone: client.cpf || '',
+          telefone: client.telefone || '',
           rua: client.rua || '',
           numero: client.numero || 0,
           cep: client.cep || '',
@@ -69,7 +69,9 @@ export class RegisterUpdateClientsComponent {
         'Cadastrado!',
         'Cadastro realizado com sucesso!',
         'success'
-      )
+      );
+      this.router.navigate(['/clients']);
+
     }, error => {
       console.error(error);
       Swal.fire({
@@ -79,6 +81,7 @@ export class RegisterUpdateClientsComponent {
         footer: (error.error.errors ? error.error.errors[0].defaultMessage : error.error.message)
       })
     });
+
   }
 
   update(cpf: string) {
@@ -88,7 +91,9 @@ export class RegisterUpdateClientsComponent {
         'Atualizado!',
         'Cadastro atualizado com sucesso!',
         'success'
-      )
+      );
+      this.router.navigate(['/clients']);
+
     }, error => {
       console.error(error);
       Swal.fire({
