@@ -1,29 +1,32 @@
 <h1 class="display-6">Clientes</h1>
 <hr>
 <a class="btn btn-dark" routerLink="/clients/register">Novo</a>
-<table class="table table-light table-striped table-bordered mt-3">
+<table class="table table-light table-striped table-bordered mt-3 p-0">
   <thead>
-    <tr>
-      <th scope="col">Nome</th>
+    <tr scope="row">
+      <th scope="col col-md-8">Nome</th>
       <th scope="col">CPF</th>
       <th scope="col">Tel.</th>
       <th scope="col">Rua</th>
       <th scope="col">Num.</th>
       <th scope="col">CEP</th>
       <th scope="col">Rend. Mensal</th>
+      <th scope="col">Ações</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let cliente of clientes">
-      <th scope="row">{{ cliente.nome }}</th>
-      <td>{{ cliente.cpf }}</td>
-      <td>{{ cliente.telefone }}</td>
-      <td>{{ cliente.rua }}</td>
-      <td>{{ cliente.numero }}</td>
-      <td>{{ cliente.cep }}</td>
-      <td>{{ cliente.rendimentoMensal | currency: 'BRL'}}</td>
-      <app-button label="Editar" [routerLink]="['/clients/edit/', cliente.cpf]"></app-button>
-      <app-button label="Deletar" (click)="delete(cliente.cpf)"></app-button>
+    <tr *ngFor="let cliente of clientes" scope="row">
+      <th scope="row  col-md-8">{{ cliente.nome }}</th>
+      <td scope="col">{{ cliente.cpf }}</td>
+      <td scope="col">{{ cliente.telefone }}</td>
+      <td scope="col">{{ cliente.rua }}</td>
+      <td scope="col">{{ cliente.numero }}</td>
+      <td scope="col">{{ cliente.cep }}</td>
+      <td scope="col">{{ cliente.rendimentoMensal | currency: 'BRL'}}</td>
+      <td scope="col">
+        <app-button label="Editar" [routerLink]="['/clients/edit/', cliente.cpf]"></app-button>
+        <app-button label="Deletar" color="danger" (click)="delete(cliente.cpf)"></app-button>
+      </td>
     </tr>
   </tbody>
 </table>

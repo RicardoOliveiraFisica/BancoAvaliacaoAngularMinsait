@@ -7,5 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() label: string = '';
-  @Input() color: string = 'dark';
+  @Input() bGcolor: string = 'dark';
+  @Input() color: string = 'white';
+
 }
